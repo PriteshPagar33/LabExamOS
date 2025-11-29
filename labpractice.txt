@@ -1285,7 +1285,17 @@ sudo apt update
 sudo apt install e2fsprogs e2fslibs-dev
 
 gcc inodenumber.c -o inodenumber
-sudo ./inodenumber /dev/sdb1 10
+example=>./inodenumber <imagefile> <path>
+sudo ./inodenumber ext2.img 12
+
+if gives inode invalid error then
+Mount the ext2 image
+mkdir mnt
+sudo mount -o loop ext2.img mnt
+Step 2: List files inside
+ls -l mnt
+ls -i mnt
+hen final commnad=> sudo ./inodenumber ext2.img 12
 
 if above fails then =>
 dd if=/dev/zero of=ext2.img bs=1M count=10
